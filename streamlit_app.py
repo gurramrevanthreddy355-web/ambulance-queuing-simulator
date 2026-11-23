@@ -24,7 +24,7 @@ from simulation import AmbulanceSimulation
 
 # Page configuration
 st.set_page_config(
-    page_title="EMS Queuing Optimizer | Ambulance Placement Simulator",
+    page_title="Prayagraj (Allahabad) EMS Queuing Optimizer",
     page_icon="🚑",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -55,8 +55,8 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # App Header
-st.title("🚑 EMS Queuing Optimizer & Ambulance Placement Simulator")
-st.caption("Operations Research & Queuing Theory to Position Ambulances for Minimum System-Wide Response Time")
+st.title("🚑 Prayagraj (Allahabad) EMS Queuing Optimizer")
+st.caption("Operations Research & Queuing Theory to Position 108 Ambulances across Prayagraj, Civil Lines, Sangam, Naini, & Jhusi")
 
 # Sidebar Controls
 st.sidebar.header("⚙️ Fleet & Queuing Parameters")
@@ -75,7 +75,7 @@ strategy_option = st.sidebar.selectbox(
 )
 
 # Initialize City Model
-city = CityModel(grid_size=5, scale_km=12.0)
+city = CityModel(scale_km=18.0)
 for z in city.zones:
     z["lambda_rate"] = round(z["lambda_rate"] * demand_multiplier, 3)
 
@@ -215,11 +215,16 @@ with tab1:
     ))
     
     fig.update_layout(
-        height=580,
+        height=620,
         template="plotly_dark",
-        xaxis=dict(title="East-West Distance (km)", range=[-7, 7], zeroline=False),
-        yaxis=dict(title="North-South Distance (km)", range=[-7, 7], zeroline=False),
-        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1)
+        xaxis=dict(title="East-West Distance from Civil Lines (km)", range=[-9, 8], zeroline=False),
+        yaxis=dict(title="North-South Distance from Civil Lines (km)", range=[-9, 8], zeroline=False),
+        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1),
+        annotations=[
+            dict(x=3.8, y=-2.4, text="🌊 Triveni Sangam", showarrow=True, arrowhead=2, arrowcolor="#38bdf8", font=dict(color="#38bdf8", size=11)),
+            dict(x=1.5, y=-5.2, text="🌉 New Yamuna Bridge", showarrow=False, font=dict(color="#94a3b8", size=10)),
+            dict(x=4.5, y=-0.2, text="🌉 Shastri Bridge (Ganga)", showarrow=False, font=dict(color="#94a3b8", size=10))
+        ]
     )
     
     st.plotly_chart(fig, use_container_width=True)

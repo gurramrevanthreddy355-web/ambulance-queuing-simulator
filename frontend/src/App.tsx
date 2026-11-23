@@ -44,7 +44,7 @@ export const App: React.FC = () => {
 
   // 2. City and Base Setup
   const zones = useMemo(() => {
-    const baseZones = generateCityZones(5, 12.0);
+    const baseZones = generateCityZones();
     return baseZones.map(z => ({
       ...z,
       lambda_rate: Math.round(z.lambda_rate * demandMultiplier * 1000) / 1000
@@ -180,14 +180,14 @@ export const App: React.FC = () => {
           <div>
             <div className="flex items-center gap-2">
               <h1 className="text-base font-bold text-white tracking-tight">
-                EMS Queuing Optimizer
+                Prayagraj (Allahabad) EMS Optimizer
               </h1>
               <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-sky-500/10 border border-sky-500/30 text-sky-400 font-semibold">
                 Larson Hypercube &bull; MEXCLP
               </span>
             </div>
             <p className="text-xs text-slate-400">
-              Operations Research & Queuing Theory for Minimum Ambulance Response Time
+              Queuing Theory & Spatial 108 Dispatch across Civil Lines, Sangam, Naini, & Jhusi
             </p>
           </div>
         </div>
@@ -397,7 +397,7 @@ export const App: React.FC = () => {
             zoneResponseTimes={activeMetrics.zoneResponseTimes}
             onBaseMove={handleBaseMove}
             isCustomMode={strategy === 'CUSTOM'}
-            scaleKm={12.0}
+            scaleKm={18.0}
           />
 
           {/* Strategy Benchmark & Comparison Panel */}

@@ -317,7 +317,7 @@ export const CityMap: React.FC<CityMapProps> = ({
       <div className="absolute top-3 left-4 z-10 flex items-center space-x-3 pointer-events-none">
         <div className="px-2.5 py-1 bg-slate-900/90 backdrop-blur border border-slate-700/60 rounded-md text-xs font-mono text-slate-300 flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-          Live City Dispatch Map (12km x 12km)
+          Prayagraj (Allahabad) Spatial Map (18km x 18km)
         </div>
         {isCustomMode && (
           <div className="px-2.5 py-1 bg-amber-500/20 border border-amber-500/40 rounded-md text-xs font-medium text-amber-300">
